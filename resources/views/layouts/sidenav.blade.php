@@ -4,7 +4,7 @@
 					<img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
 				</div>
 				<div>
-					<h4 class="logo-text">HouseBox</h4>
+					<h4 class="logo-text">CareGiver</h4>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-first-page'></i>
 				</div>
@@ -13,16 +13,22 @@
 			<ul class="metismenu" id="menu">
                 @includeIf('includes.side_menus.single',['route'=>'home','title'=>'Dashboard','icon'=>'bx bx-home'])
 
-                 {{-- properties --}}
-                @includeIf('includes.side_menus.section',['title'=>'Properties'])
-                   @includeIf('includes.side_menus.single',['route'=>'add-property-form','title'=>'Add Property','icon'=>'bx bx-plus'])
-                   @includeIf('includes.side_menus.single',['route'=>'properties-list','title'=>'All Properties','icon'=>'bx bx-buildings'])
-
-                   @includeIf('includes.side_menus.single',['route'=>'properties-cost','title'=>'Development Cost','icon'=>'bx bx-detail'])
-                 {{-- Teneat --}}
-                @includeIf('includes.side_menus.section',['title'=>'Tenant'])
-                    @includeIf('includes.side_menus.single',['route'=>'tenant-list','title'=>'All Tenants','icon'=>'lni lni-users'])
-                    @includeIf('includes.side_menus.single',['route'=>'tenant-payment-history','title'=>'Tenant Payment','icon'=>'bx bx-repeat'])
+                 {{-- Yp support --}}
+                @includeIf('includes.side_menus.section',['title'=>'YP Support'])
+                   @includeIf('includes.side_menus.single',['route'=>'meaningful-page','title'=>'Interactions','icon'=>'bx bx-plus'])
+                   @includeIf('includes.side_menus.single',['route'=>'incident-mgt-page','title'=>'Incident Mgt','icon'=>'bx bx-buildings'])
+                   @includeIf('includes.side_menus.single',['route'=>'key-work-page','title'=>'Key Work Sessions','icon'=>'bx bx-detail'])
+                     {{-- induction --}}
+                   @includeIf('includes.side_menus.section',['title'=>'induction'])
+                   @includeIf('includes.side_menus.single',['route'=>'soft-book-page','title'=>'Soft Handbook','icon'=>'bx bx-plus'])
+                   @includeIf('includes.side_menus.single',['route'=>'sign-off-page','title'=>'Sign Off Sheet','icon'=>'bx bx-buildings'])
+                   @includeIf('includes.side_menus.single',['route'=>'policy-page','title'=>'Policy','icon'=>'bx bx-detail'])
+                   {{-- personal dev --}}
+                   @includeIf('includes.side_menus.section',['title'=>'Personal Development'])
+                   @includeIf('includes.side_menus.single',['route'=>'training-hub-page','title'=>'Training Hub','icon'=>'bx bx-plus'])
+                   {{-- young people --}}
+                   @includeIf('includes.side_menus.section',['title'=>'Young People'])
+                   @includeIf('includes.side_menus.single',['route'=>'young-list-page','title'=>'All','icon'=>'bx bx-plus'])
 
 			</ul>
 			<!--end navigation-->

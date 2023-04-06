@@ -21,7 +21,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{asset('favicons/ms-icon-144x144.png')}}"> --}}
     <meta name="theme-color" content="#ffffff">
-    <title>HouseBox</title>
+    <title>Care Giver</title>
 
 
 
@@ -54,6 +54,8 @@
 	<link rel="stylesheet" href="{{asset('assets/css/dark-theme.css')}}" />
 	<link rel="stylesheet" href="{{asset('assets/css/semi-dark.css')}}" />
 	<link rel="stylesheet" href="{{asset('assets/css/header-colors.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('assets/css/parsley.css')}}"/>
 
 
 
@@ -81,7 +83,7 @@
 
 	<!--plugins-->
 	<script src="{{asset('assets/js/jquery.min.js')}}"></script>
-      {{-- <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script> --}}
+      <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
       <script src="{{asset('assets/js/popper.js')}}"></script>
       <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 	<script src="{{asset('assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
@@ -95,6 +97,9 @@
 	<script src="{{asset('assets/plugins/highcharts/js/export-data.js')}}"></script>
 	<script src="{{asset('assets/plugins/highcharts/js/accessibility.js')}}"></script>
 	<script src="{{asset('assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+     {{-- <script type="text/javascript" src="{{asset('assets/js/select2.js')}}" ></script> --}}
+    <script type="text/javascript" src="{{asset('assets/js/parsley.min.js')}}" ></script>
 	{{-- <script src="{{asset('assets/js/index2.js')}}"></script> --}}
 	<!--app JS-->
 	<script src="{{asset('assets/js/main_app.js')}}"></script>
@@ -111,8 +116,12 @@
 
 </script>
 <script>
+   
+         $('.single-select').select2({});
+        $('.multiple-select').select2({});
 $(document).ready(function() {
-
+    //  $('.select2').select2();
+    $('.form').parsley();
     // $('.select2').select2();
 
 });

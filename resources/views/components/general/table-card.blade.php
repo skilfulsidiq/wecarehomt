@@ -1,5 +1,5 @@
 <h6 class="mb-0 text-uppercase">{{$title}}</h6>
-<div class="card">
+<div class="card mt-2">
     <div class="card-body">
         <div class="table-responsive">
             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap5">
