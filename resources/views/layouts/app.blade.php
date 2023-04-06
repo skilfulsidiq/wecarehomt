@@ -16,16 +16,18 @@
             </div>
         </div>
     @else
-    <div class="page-wrapper">
-        @includeIf('layouts.sidenav')
+      @includeIf('layouts.sidenav')
         @includeIf('layouts.nav')
+    <div class="page-wrapper">
+
 			<div class="page-content">
            {{ $slot }}
             </div>
     </div>
+     <livewire:components.modal/>
     @endif
 
+
+
 </div>
-
-
 </x-layouts.base>

@@ -59,7 +59,7 @@
 
     @yield('styles')
     @livewireStyles
-    @vite(['resources/scss/app.scss'])
+    @vite(['resources/sass/app.scss'])
 </head>
 
 <body>
@@ -76,10 +76,14 @@
 
 
 
+
     <!-- Core -->
-    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+
 	<!--plugins-->
 	<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+      {{-- <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script> --}}
+      <script src="{{asset('assets/js/popper.js')}}"></script>
+      <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 	<script src="{{asset('assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
 	<script src="{{asset('assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>
 	<script src="{{asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
@@ -93,12 +97,12 @@
 	<script src="{{asset('assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
 	{{-- <script src="{{asset('assets/js/index2.js')}}"></script> --}}
 	<!--app JS-->
-	<script src="{{asset('assets/js/app.js')}}"></script>
-	<script>
+	<script src="{{asset('assets/js/main_app.js')}}"></script>
+	{{-- <script>
 		new PerfectScrollbar('.customers-list');
 		new PerfectScrollbar('.store-metrics');
 		new PerfectScrollbar('.product-list');
-	</script>
+	</script> --}}
 
      @livewireScripts
       {{-- @powerGridScripts --}}

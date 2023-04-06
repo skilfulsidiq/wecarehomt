@@ -1,8 +1,7 @@
 $(function () {
 	"use strict";
 	/* perfect scrol bar */
-	new PerfectScrollbar('.header-message-list');
-	new PerfectScrollbar('.header-notifications-list');
+
 	// search bar
 	$(".mobile-search-icon").on("click", function () {
 		$(".search-bar").addClass("full-search-bar");
@@ -131,10 +130,10 @@ $(function () {
 		$("html").addClass("color-header headercolor8");
 		$("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor5 headercolor6 headercolor7 headercolor3");
 	});
-	
-	
-	
-   // sidebar colors 
+
+
+
+   // sidebar colors
 
 
     $('#sidebarcolor1').click(theme1);
@@ -161,11 +160,11 @@ $(function () {
     function theme4() {
       $('html').attr('class', 'color-sidebar sidebarcolor4');
     }
-	
+
 	function theme5() {
       $('html').attr('class', 'color-sidebar sidebarcolor5');
     }
-	
+
 	function theme6() {
       $('html').attr('class', 'color-sidebar sidebarcolor6');
     }
@@ -178,24 +177,26 @@ $(function () {
       $('html').attr('class', 'color-sidebar sidebarcolor8');
     }
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
+	// new PerfectScrollbar('.header-message-list');
+	// new PerfectScrollbar('.header-notifications-list');
