@@ -12,8 +12,9 @@
     </x-general.breadcrum>
     <div class="card">
         <div class="card-body radius-10">
-            <div class="mt-5 document">
-                <h4><b>Meaningful interaction</b></h4>
+             <button class="btn btn-primary" onclick="printDiv('doc')"><i class="fas fa-print"></i> Print</button>
+            <div class="mt-5 document" id="doc">
+                <h4 class="text-center"><b>Meaningful interaction</b></h4>
                 <div class="row">
                     <div class="col-md-6">
                         <table class="table table-striped table-condensed">

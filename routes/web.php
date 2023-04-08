@@ -18,7 +18,9 @@ use App\Http\Livewire\Features\Tenants\TenantPaymentHistoryPage;
 use App\Http\Livewire\Features\YoungPeople\DetailPage;
 use App\Http\Livewire\Features\YoungPeople\ListPage;
 use App\Http\Livewire\Features\YpSupport\CreateInteractionForm;
+use App\Http\Livewire\Features\YpSupport\IncidentDetailPage;
 use App\Http\Livewire\Features\YpSupport\IncidentMgtPage;
+use App\Http\Livewire\Features\YpSupport\KeySessionDetail;
 use App\Http\Livewire\Features\YpSupport\KeyWorkSessionPage;
 use App\Http\Livewire\Features\YpSupport\MeaningFulDetailPage;
 use App\Http\Livewire\Features\YpSupport\MeaningFulPage;
@@ -45,7 +47,9 @@ Route::group(['prefix'=>'yp-support',], function (){
     Route::get('/meaningful-details', MeaningFulDetailPage::class)->name('meaningful-detail-page');
     Route::get('/meaningful-form', CreateInteractionForm::class)->name('meaningful-form-page');
     Route::get('/incident-mgt', IncidentMgtPage::class)->name('incident-mgt-page');
+    Route::get('/incident-detail', IncidentDetailPage::class)->name('incident-detail-page');
     Route::get('/key-work-session', KeyWorkSessionPage::class)->name('key-work-page');
+    Route::get('/key-work-session-details', KeySessionDetail::class)->name('key-work-detail');
 
 });
 Route::group(['prefix' => 'induction',], function () {

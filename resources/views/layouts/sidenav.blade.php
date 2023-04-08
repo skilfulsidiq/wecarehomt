@@ -15,8 +15,9 @@
 
                  {{-- Yp support --}}
                 @includeIf('includes.side_menus.section',['title'=>'YP Support'])
-                   @includeIf('includes.side_menus.single',['route'=>'meaningful-page','title'=>'Interactions','icon'=>'bx bx-plus'])
-                   @includeIf('includes.side_menus.single',['route'=>'incident-mgt-page','title'=>'Incident Mgt','icon'=>'bx bx-buildings'])
+                   @includeIf('includes.side_menus.single',['route'=>'meaningful-page','title'=>'Interactions','icon'=>'bx
+bx-comment-detail'])
+                   @includeIf('includes.side_menus.single',['route'=>'incident-mgt-page','title'=>'Incident Mgt','icon'=>'bx bx-camera-home'])
                    @includeIf('includes.side_menus.single',['route'=>'key-work-page','title'=>'Key Work Sessions','icon'=>'bx bx-detail'])
                      {{-- induction --}}
                    @includeIf('includes.side_menus.section',['title'=>'induction'])
