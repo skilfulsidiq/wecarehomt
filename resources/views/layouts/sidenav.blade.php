@@ -1,10 +1,10 @@
 <div class="sidebar-wrapper" data-simplebar="true">
 			<div class="sidebar-header">
 				<div>
-					<img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+					{{-- <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon"> --}}
 				</div>
 				<div>
-					<h4 class="logo-text">CareGiver</h4>
+					<h4 class="logo-text">We Care Home</h4>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-first-page'></i>
 				</div>

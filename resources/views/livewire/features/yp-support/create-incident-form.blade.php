@@ -28,8 +28,13 @@
 
                             <div class="form-group">
                                 <label for="">Description of the Incident</label>
+                                 <select wire:ignore.self  class="form-control multiple-select" wire:model.lazy="form.support" multiple>
+                                    <option value="Jon Doe">Police Report</option>
+                                    <option value="Adam Smith">Injuries</option>
+                                    <option value="Adam Smith">Car Accident</option>
+                                </select>
                                 {{-- <label for="">Focus</label> --}}
-                                <textarea  id="composition" wire:model.lazy="form.goal" class="form-control"></textarea>
+                                {{-- <textarea  id="composition" wire:model.lazy="form.goal" class="form-control"></textarea> --}}
                             </div>
                         </div>
                         <div class="mt-2">

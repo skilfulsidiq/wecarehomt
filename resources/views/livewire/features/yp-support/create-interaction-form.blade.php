@@ -38,7 +38,7 @@
         <x-slot name="footer">Interaction List</x-slot>
     </x-general.modal-card> --}}
     <x-general.form-card>
-        <x-slot name="title">p</x-slot>
+        <x-slot name="title">Interaction Form</x-slot>
 
         <x-slot name="form">
 
