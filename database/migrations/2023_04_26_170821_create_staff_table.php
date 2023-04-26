@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->id();
-             $table->foreignId("branch_id")->nullable()->constrained('branches')->onDelete('cascade');
+            $table->foreignId("branch_id")->nullable()->constrained('branches')->onDelete('cascade');
              $table->string("firstname");
              $table->string("lastname");
              $table->string("email")->unique();
@@ -21,8 +21,8 @@ return new class extends Migration
              $table->string("password");
              $table->string("last_login_ip")->nullable();
              $table->string("last_login_at")->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
+             $table->string("remember_me")->nullable();
+            $table->string("slug")->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('staff');
     }
 };
