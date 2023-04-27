@@ -18,8 +18,14 @@
                             <div class="form-group mt-2">
                                 <label for="">Support Staff</label>
                                 <select wire:ignore.self  class="form-control multiple-select" wire:model.lazy="form.support" multiple>
-                                    <option value="Jon Doe">Jon Doe</option>
-                                    <option value="Adam Smith">Adam Smith</option>
+                                    <option value="">Select</option>
+                                      @forelse ($staff as $in)
+                                    <option value="{{ $in->id }}">{{ $in->firstname }} {{ $in->lastname }}</option>
+                                    @empty
+
+                                    @endforelse
+                                    {{-- <option value="Jon Doe">Jon Doe</option>
+                                    <option value="Adam Smith">Adam Smith</option> --}}
                                 </select>
                             </div>
                         </div>
@@ -28,10 +34,15 @@
 
                             <div class="form-group">
                                 <label for="">Description of the Incident</label>
-                                 <select wire:ignore.self  class="form-control multiple-select" wire:model.lazy="form.support" multiple>
-                                    <option value="Jon Doe">Police Report</option>
+                                 <select wire:ignore.self  class="form-control single-select" wire:model.lazy="form.support" >
+                                    @forelse ($incident as $in)
+                                    <option value="{{ $in->incident_name }}">{{ $in->incident_name }}</option>
+                                    @empty
+
+                                    @endforelse
+                                    {{-- <option value="Jon Doe">Police Report</option>
                                     <option value="Adam Smith">Injuries</option>
-                                    <option value="Adam Smith">Car Accident</option>
+                                    <option value="Adam Smith">Car Accident</option> --}}
                                 </select>
                                 {{-- <label for="">Focus</label> --}}
                                 {{-- <textarea  id="composition" wire:model.lazy="form.goal" class="form-control"></textarea> --}}
@@ -41,8 +52,18 @@
 
                             <div class="form-group">
                                 <label for="">Consequences</label>
+                                 <select wire:ignore.self  class="form-control single-select" wire:model.lazy="form.support" >
+                                    @forelse ($outcome as $in)
+                                    <option value="{{ $in->outcome_name }}">{{ $in->outcome_name }}</option>
+                                    @empty
+
+                                    @endforelse
+                                    {{-- <option value="Jon Doe">Police Report</option>
+                                    <option value="Adam Smith">Injuries</option>
+                                    <option value="Adam Smith">Car Accident</option> --}}
+                                </select>
                                 {{-- <label for="">Focus</label> --}}
-                                <textarea  id="composition" wire:model.lazy="form.acheivement" class="form-control"></textarea>
+                                {{-- <textarea  id="composition" wire:model.lazy="form.acheivement" class="form-control"></textarea> --}}
                             </div>
                         </div>
                         <div class="mt-2">

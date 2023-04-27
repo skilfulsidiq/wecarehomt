@@ -64,6 +64,11 @@
                             <div class="form-group mt-2">
                                 <label for="">Support Staff</label>
                                 <select wire:ignore.self  class="form-control multiple-select" wire:model.lazy="form.support" multiple>
+                                      {{-- @forelse ($staff as $in)
+                                    <option value="{{ $in->id }}">{{ $in->firstname }} {{ $in->lastname }}</option>
+                                    @empty
+
+                                    @endforelse --}}
                                     <option value="Jon Doe">Jon Doe</option>
                                     <option value="Adam Smith">Adam Smith</option>
                                 </select>
