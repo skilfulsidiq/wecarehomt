@@ -4,7 +4,8 @@
         <x-slot name="sub_title">Incident Mgt</x-slot>
         <x-slot name="right">
             <div class="me-auto d-print-none">
-                <button wire:click="$emit('showModal','features.yp-support.create-incident-form')" class="btn btn-outline-primary">Add Incident</button>
+                <a href="{{ route('create-incident') }}" class="btn btn-outline-primary">Add Incident</a>
+                {{-- <button wire:click="$emit('showModal','features.yp-support.create-incident-form')" class="btn btn-outline-primary">Add Incident</button> --}}
             </div>
         </x-slot>
     </x-general.breadcrum>

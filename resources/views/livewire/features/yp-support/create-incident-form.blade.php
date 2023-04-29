@@ -1,11 +1,22 @@
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create Incident</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-               <form wire:submit.prevent='submit' data-parsley-validate>
+<div>
+      <x-general.breadcrum>
+        <x-slot name="title">YP Support</x-slot>
+        <x-slot name="sub_title">Incident Form</x-slot>
+        <x-slot name="right">
+            <div class="me-auto d-print-none">
+                <a href="{{ route('meaningful-page') }}" class="btn btn-outline-primary btn-sm"><i
+                        class="fas fa-list"></i></a>
+                {{-- <button wire:click="$emit('showModal','features.yp-support.create-interaction-form')" class="btn btn-outline-primary">Add Interaction</button> --}}
+            </div>
+        </x-slot>
+    </x-general.breadcrum>
+   <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+         <x-general.form-card>
+        <x-slot name="title">Incident Form</x-slot>
+
+        <x-slot name="form">
+             <form wire:submit.prevent='submit' data-parsley-validate>
 
                 <div class="row">
                         <div class="mt-2">
@@ -17,7 +28,7 @@
                         <div class="mt-2">
                             <div class="form-group mt-2">
                                 <label for="">Support Staff</label>
-                                <select wire:ignore.self  class="form-control multiple-select" wire:model.lazy="form.support" multiple>
+                                <select wire:ignore.self  class="form-control multiple-select " wire:model.lazy="form.support" multiple>
                                     <option value="">Select</option>
                                       @forelse ($staff as $in)
                                     <option value="{{ $in->id }}">{{ $in->firstname }} {{ $in->lastname }}</option>
@@ -35,6 +46,7 @@
                             <div class="form-group">
                                 <label for="">Description of the Incident</label>
                                  <select wire:ignore.self  class="form-control single-select" wire:model.lazy="form.support" >
+                                      <option value="">Select</option>
                                     @forelse ($incident as $in)
                                     <option value="{{ $in->incident_name }}">{{ $in->incident_name }}</option>
                                     @empty
@@ -53,6 +65,7 @@
                             <div class="form-group">
                                 <label for="">Consequences</label>
                                  <select wire:ignore.self  class="form-control single-select" wire:model.lazy="form.support" >
+                                      <option value="">Select</option>
                                     @forelse ($outcome as $in)
                                     <option value="{{ $in->outcome_name }}">{{ $in->outcome_name }}</option>
                                     @empty
@@ -89,7 +102,12 @@
                     <button type="submit" class="btn btn-primary form-btn-lg ml-5">Submit</button>
                 </div>
             </form>
-        </div>
 
+        </x-slot>
+    </x-general.form-card>
     </div>
+   </div>
+
+
+
 </div>

@@ -60,6 +60,7 @@
 
 
 
+
     @yield('styles')
     @livewireStyles
     @vite(['resources/sass/app.scss'])
@@ -103,6 +104,7 @@
     <script type="text/javascript" src="{{ asset('assets/js/parsley.min.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('assets/js/pdf.js') }}"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <script type="text/javascript" src="{{ asset('assets/js/htmlpdf.js') }}"></script>
     {{-- <script src="{{asset('assets/js/index2.js')}}"></script> --}}
     <!--app JS-->
@@ -122,6 +124,8 @@
     <script>
         $('.single-select').select2({});
         $('.multiple-select').select2({});
+
+        $.fn.modal.Constructor.prototype._enforceFocus = function() {};
 
         function printDiv(id) {
 
@@ -165,6 +169,7 @@
             //  $('.select2').select2();
             $('.form').parsley();
             // $('.select2').select2();
+
 
 
         });

@@ -4,8 +4,8 @@
         <x-slot name="sub_title">KWS/x-slot>
         <x-slot name="right">
             <div class="me-auto d-print-none">
-                {{-- <a href="{{route('meaningful-form-page')}}" class="btn btn-outline-primary">Add </a> --}}
-                <button wire:click="$emit('showModal','features.yp-support.create-key-session-form')" class="btn btn-outline-primary">Add </button>
+                <a href="{{route('create-key-work-page')}}" class="btn btn-outline-primary">Add Session</a>
+                {{-- <button wire:click="$emit('showModal','features.yp-support.create-key-session-form')" class="btn btn-outline-primary">Add </button> --}}
             </div>
         </x-slot>
     </x-general.breadcrum>
