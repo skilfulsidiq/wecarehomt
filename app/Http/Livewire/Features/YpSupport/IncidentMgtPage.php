@@ -6,9 +6,11 @@ use App\Http\Livewire\BaseComponent;
 use App\Services\YpSupport\IncidentService;
 use App\Services\YpSupport\InteractionService;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class IncidentMgtPage extends BaseComponent
 {
+    use WithPagination;
     public $search="";
     public function render()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Features\YpSupport;
 
+use App\Events\InteractionCreatedEvent;
 use App\Services\GeneralService;
 use App\Services\YpSupport\InteractionService;
 use Livewire\Component;
@@ -38,6 +39,8 @@ class CreateInteractionForm extends Component
 
        $feedback = appService(InteractionService::class)->create($this->form);
        if($feedback['status']){
+            $data = $feedback['data'];
+            event(new InteractionCreatedEvent($data));
             //alert
             //redirect
             return redirect()->route('meaningful-page');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Features\YpSupport;
 
+use App\Events\IncidentCreatedEvent;
+use App\Events\SendEmailNotification;
 use App\Services\Branch\BranchCrudService;
 use App\Services\GeneralService;
 use App\Services\YpSupport\IncidentService;
@@ -43,6 +45,8 @@ class CreateIncidentForm extends Component
 
         $feedback = appService(IncidentService::class)->create($this->form);
         if ($feedback['status']) {
+            $data = $feedback['data'];
+            event(new IncidentCreatedEvent($data));
             //alert
             //redirect
             return redirect()->route('meaningful-page');

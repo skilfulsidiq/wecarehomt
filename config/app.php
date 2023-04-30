@@ -17,6 +17,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'sendmailto'=>['osodiq@gmail.com'],
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -194,6 +196,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        // niklasravnsborg\LaravelPdf\PdfServiceProvider::class
 
     ],
 
@@ -210,6 +214,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        // 'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
 
 ];
