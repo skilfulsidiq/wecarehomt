@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Log;
 
 class BaseService
 {
@@ -37,7 +37,7 @@ class BaseService
      * @return array
      */
      public function getFieldsSearchable(){
-        
+
      }
 
     /**
@@ -76,7 +76,9 @@ class BaseService
     {
         $query = $this->allQuery();
 
-        return $query->paginate($perPage, $columns);
+       $result = $query->paginate($perPage, $columns);
+
+        return $this->success('Result', $result);
     }
 
     /**
@@ -134,7 +136,8 @@ class BaseService
     {
         $query = $this->allQuery($search, $skip, $limit);
 
-        return $query->get($columns);
+        $result = $query->get($columns);
+        return $this->success('Result', $result);
     }
 
     /**
@@ -146,11 +149,15 @@ class BaseService
      */
     public function create($input)
     {
-        $model = $this->model->newInstance($input);
+        // $model = $this->model->newInstance($input);
+        $model = $this->model->create($input);
 
-        $model->save();
+        // $model->save();
 
-        return $model;
+        if ($model) {
+            return $this->success("created", $model);
+        }
+        return $this->fail("Error creating item");
     }
 
     /**
@@ -165,7 +172,16 @@ class BaseService
     {
         $query = $this->model->newQuery();
 
-        return $query->find($id, $columns);
+
+        $result =  $query->find($id, $columns);
+        return $this->success('success',$result);
+    }
+    public function findBySlug($slug){
+        $query = $this->model->newQuery();
+
+
+        $result =  $query->where('slug', $slug)->first();
+        return $this->success('success', $result);
     }
 
     /**
@@ -184,9 +200,12 @@ class BaseService
 
         $model->fill($input);
 
-        $model->save();
+        if ($model->save()) {
+            return $this->success("updated", $model);
+        }
+        return $this->fail("Error updatin item");
 
-        return $model;
+        // return $model;
     }
 
     /**
@@ -201,7 +220,32 @@ class BaseService
         $query = $this->model->newQuery();
 
         $model = $query->findOrFail($id);
+        if($model->delete()){
+            return $this->success("Deleted",true);
+        }
+        return $this->fail("Error deleting item");
 
-        return $model->delete();
+        // return $model->delete();
+    }
+
+    public function fail($msg, $logMsg = 'App Error', $log = null, $code = 404)
+    {
+        $feedback = [];
+        $feedback['status'] = false;
+        $feedback['msg'] = $msg;
+        $feedback['code'] = $code;
+        if ($log != null) {
+            Log::debug($logMsg . ' : ' . $log->getMessage());
+        }
+        return $feedback;
+    }
+    public function success($msg, $data, $code = 200)
+    {
+        $feedback = [];
+        $feedback['status'] = true;
+        $feedback['msg'] = $msg;
+        $feedback['data'] = $data;
+        $feedback['code'] = $code;
+        return $feedback;
     }
 }

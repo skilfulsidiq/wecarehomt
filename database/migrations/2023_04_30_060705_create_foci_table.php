@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('consequences', function (Blueprint $table) {
+        Schema::create('focus', function (Blueprint $table) {
             $table->id();
-             $table->string("consequence_name");
-             $table->text("consequence_desc");
+            $table->string('focus_name');
+            $table->text('focus_desc');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('consequences');
+        Schema::dropIfExists('foci');
     }
 };

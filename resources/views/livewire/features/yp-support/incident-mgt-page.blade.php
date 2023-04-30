@@ -17,22 +17,32 @@
                     <th>s/n</th>
                     <th>Date</th>
                     <th>Location</th>
+                    <th>Young Person</th>
                     <th>Description</th>
+                      <th>Staff</th>
                     <th>Consequence</th>
-                    <th>Action Tacke</th>
+                    {{-- <th>Action Tacke</th> --}}
                     <th></th>
                 </x-slot>
                 <x-slot name="tbody">
-                    <tr>
-                        <td>1</td>
-                        <td>2023-02-05</td>
-                        <td>lagos</td>
-                        <td>Emotion</td>
-                        <td>Doe Jue, Adam Smith</td>
-                        <td>Resolved</td>
-                        <td><a href="{{route('incident-detail-page')}}"><i class="fas fa-eye"></i> </a></td>
-                    </tr>
+                    @forelse ($results as $n )
+                         <td>@includeIf('includes.pagination_number',['app'=>$results])</td>
+                         <td>{{ $n->date }}</td>
+                         <td>{{ $n->location }}</td>
+                        <td>{{ $n->youngPeople->firstname}} {{ $n->youngPeople->firstname}}</td>
+                        <td>{{ $n->incident }}</td>
+                        <td>{{ $n->staff->firstname}} {{ $n->staff->lastname}}</td>
+                        <td>{{ $n->consequence }}</td>
+                         <td><a href="{{route('incident-detail-page',$n->slug)}}"><i class="fas fa-eye"></i> </a></td>
+                        {{-- <td>{{ $n }}</td> --}}
+                    @empty
+
+                    @endforelse
+
                 </x-slot>
-                <x-slot name="paginate"></x-slot>
+                <x-slot name="paginate">
+                      {{ $results->links('custom_pagination') }}
+                </x-slot>
         </x-general.table-card>
+
 </div>

@@ -24,16 +24,18 @@
                             <label for="">Date</label>
                             <input wire:ignore.self type="date" wire:model.lazy="form.date" class="form-control"
                                 required>
+                                 @error('form.date') <div class="error"> {{ $message }} </div> @enderror
                         </div>
                     </div>
                     <div class="mt-2">
                         <div class="form-group mt-2">
                             <label for="">Support Staff</label>
-                            <select wire:ignore.self class="form-control multiple-select" wire:model.lazy="form.support"
-                                multiple>
+                            <select wire:ignore.self class="form-control multiple-select" wire:model.lazy="form.support_staff"
+                                >
                                 <option value="Jon Doe">Jon Doe</option>
                                 <option value="Adam Smith">Adam Smith</option>
                             </select>
+                             @error('form.support_staff') <div class="error"> {{ $message }} </div> @enderror
                         </div>
                     </div>
 

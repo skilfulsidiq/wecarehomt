@@ -10,101 +10,102 @@
             </div>
         </x-slot>
     </x-general.breadcrum>
-    {{-- <x-general.modal-card>
-        <x-slot name="fullscreen">modal-full-screen</x-slot>
-        <x-slot name="title">Interaction Form</x-slot>
-        <x-slot name="body">
-            <form action="#">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group">
-                            <label for="">Date</label>
-                            <input type="date" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                         <div class="form-group">
-                            <label for="">Young Person</label>
-                            <select name="" id="" class="form-control single-select">
-                                <option value="j">Jon Doe</option>
-                                <option value="j">Adam Smith</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6"></div>
-                </div>
-            </form>
-        </x-slot>
-        <x-slot name="footer">Interaction List</x-slot>
-    </x-general.modal-card> --}}
     <x-general.form-card>
         <x-slot name="title">Interaction Form</x-slot>
 
         <x-slot name="form">
 
-            <form wire:submit.prevent='submit' data-parsley-validate>
+            <form wire:submit.prevent='submit'>
 
                 <div class="row">
                         <div class="col-lg-6 col-md-6 mt-2">
                             <div class="form-group">
                                 <label for="">Date</label>
-                                <input wire:ignore.self type="date" wire:model.lazy="form.date" class="form-control" required>
+                                <input  type="date" wire:model="form.date" class="form-control" >
+                                 @error('form.date') <div class="error"> {{ $message }} </div> @enderror
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-2" wire:ignore>
                                 <label for="">Young Person</label>
-                                <select wire:ignore.self class="form-control single-select" wire:model="form.young" required>
-                                    <option value="Jon Doe">Jon Doe</option>
-                                    <option value="Adam Smith">Adam Smith</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 mt-2">
-                            <div class="form-group mt-2">
-                                <label for="">Support Staff</label>
-                                <select wire:ignore.self  class="form-control multiple-select" wire:model.lazy="form.support" multiple>
-                                      {{-- @forelse ($staff as $in)
+                                <select class="form-control select2"  wire:model.lazy="form.young_people_id" required>
+
+                                      @forelse ($young as $in)
                                     <option value="{{ $in->id }}">{{ $in->firstname }} {{ $in->lastname }}</option>
                                     @empty
 
-                                    @endforelse --}}
-                                    <option value="Jon Doe">Jon Doe</option>
-                                    <option value="Adam Smith">Adam Smith</option>
+                                    @endforelse
                                 </select>
+                                 @error('form.young_people_id') <div class="error"> {{ $message }} </div> @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mt-2">
+                            <div class="form-group mt-2" wire:ignore>
+                                <label for="">Support Staff</label>
+                                   <select  class="form-control select2"  wire:model="form.staff_id" >
+
+                                      @forelse ($staff as $in)
+                                    <option value="{{ $in->id }}">{{ $in->firstname }} {{ $in->lastname }}</option>
+                                    @empty
+
+                                    @endforelse
+                                </select>
+                                   @error('form.staff_id') <div class="error"> {{ $message }} </div> @enderror
+
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6mt-2">
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-2" wire:ignore>
                                 <label for="">Focus</label>
-                                <select wire:ignore.self class="form-control multiple-select" wire:model.lazy="form.focus" multiple>
-                                    <option value="e">EET</option>
-                                    <option value="p">Emotional Wellbeing</option>
+                                <select class="form-control select2"  wire:model="form.focus" >
+
+                                      @forelse ($focus as $in)
+                                    <option value="{{ $in->focus_name }}">{{ $in->focus_name }} </option>
+                                    @empty
+
+                                    @endforelse
                                 </select>
+                                   @error('form.focus') <div class="error"> {{ $message }} </div> @enderror
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
 
-                            <div class="form-group">
-                                <label for="">List Goal and Object(itemize by new line)</label>
-                                {{-- <label for="">Focus</label> --}}
-                                <textarea  id="composition" wire:model.lazy="form.goal" class="form-control"></textarea>
+                            <div class="form-group" wire:ignore>
+                                <label for="">Select Goals</label>
+                                <select  class="form-control select2"  wire:model="form.goals" multiple >
+                                    {{-- <option value="">Select</option> --}}
+                                      @forelse ($goals as $in)
+                                      <option value="{{ $in->goal_name }}">{{ $in->goal_name }}</option>
+                                    @empty
+
+                                    @endforelse
+                                </select>
+                                   @error('form.goals') <div class="error"> {{ $message }} </div> @enderror
+
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
+                             <div class="form-group mt-2" wire:ignore>
+                                <label for="">Select Achievement</label>
+                                <select  class="form-control select2"  wire:model="form.achievements" multiple>
+                                    {{-- <option >Select</option> --}}
+                                      @forelse ($outcome as $in)
+                                      <option value="{{ $in->outcome_name }}">{{ $in->outcome_name }}</option>
+                                    @empty
 
-                            <div class="form-group">
-                                <label for="">List Outcome and Achievement(itemize by new line)</label>
-                                {{-- <label for="">Focus</label> --}}
-                                <textarea  id="composition" wire:model.lazy="form.acheivement" class="form-control"></textarea>
+                                    @endforelse
+                                </select>
+                                   @error('form.acheivements') <div class="error"> {{ $message }} </div> @enderror
                             </div>
+
+
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
 
                             <div class="form-group">
                                 <label for="">Refelction</label>
                                 {{-- <label for="">Focus</label> --}}
-                                <textarea id="composition" wire:model.lazy="form.reflection" class="form-control"></textarea>
+                                <textarea id="composition" wire:model="form.reflection" class="form-control"></textarea>
                             </div>
                         </div>
                     </div>
@@ -115,10 +116,6 @@
 
 
                 <div class="d-flex justify-content-center mt-5">
-                    {{-- @if ($step > 1)
-                        <button type="button" class="btn btn-outline-primary form-btn-lg" wire:click="goBack">
-                            Back</button>
-                    @endif --}}
                     <button type="submit" class="btn btn-primary form-btn-lg ml-5">Submit</button>
                 </div>
             </form>
@@ -127,18 +124,22 @@
 
 
 </div>
-@push('custom_script')
-    <script src="https://cdn.tiny.cloud/1/rwksx53ly5tiprv8w0oxm5efm7dnzqf5g1bkavv3erg1riu2/tinymce/6.4.1-16/tinymce.min.js">
-    </script>
-    {{-- <script src="{{ asset('assets/plugins/tinymice.js') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/js/nicedit.js') }}"></script> --}}
-    <script>
-        tinymce.init({
-        //     selector: '#composition'
-        // });
-        // bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-        //   bkLib.onDomLoaded(function(){
-        //   var myInstance = new nicEditor().panelInstance('composition');
-        // });
-    </script>
+
+@push("custom_script")
+<script>
+      $(document).ready(function() {
+            //  $('.select2').select2();
+              $('.select2').select2({});
+
+            //   $(document).on('change', '.select2', function (e) {
+            //  //when ever the value of changes this will update your PHP variable
+            //         @this.set('id_to', e.target.value);
+            //     });
+
+
+
+
+        });
+
+</script>
 @endpush

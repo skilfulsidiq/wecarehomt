@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('incident_types', function (Blueprint $table) {
             $table->id();
             $table->string("incident_name");
+            $table->text("incident_desc");
             $table->timestamps();
         });
     }

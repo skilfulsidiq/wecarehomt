@@ -47,11 +47,11 @@ Route::get('/home', DashboardPage::class)->name('home');
 
 Route::group(['prefix'=>'yp-support',], function (){
     Route::get('/meaningful-interaction', MeaningFulPage::class)->name('meaningful-page');
-    Route::get('/meaningful-details', MeaningFulDetailPage::class)->name('meaningful-detail-page');
+    Route::get('/meaningful-details/{slug}', MeaningFulDetailPage::class)->name('meaningful-detail-page');
     Route::get('/meaningful-form', CreateInteractionForm::class)->name('meaningful-form-page');
     Route::get('/incident-mgt', IncidentMgtPage::class)->name('incident-mgt-page');
     Route::get('/create-incident', CreateIncidentForm::class)->name('create-incident');
-    Route::get('/incident-detail', IncidentDetailPage::class)->name('incident-detail-page');
+    Route::get('/incident-detail/{slug}', IncidentDetailPage::class)->name('incident-detail-page');
     Route::get('/key-work-session', KeyWorkSessionPage::class)->name('key-work-page');
     Route::get('/create-key-work-session', CreateKeySessionForm::class)->name('create-key-work-page');
     Route::get('/key-work-session-details', KeySessionDetail::class)->name('key-work-detail');

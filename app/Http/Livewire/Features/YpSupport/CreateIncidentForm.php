@@ -4,16 +4,30 @@ namespace App\Http\Livewire\Features\YpSupport;
 
 use App\Services\Branch\BranchCrudService;
 use App\Services\GeneralService;
+use App\Services\YpSupport\IncidentService;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class CreateIncidentForm extends Component
 {
     public $form = [
-        "date"=>"",
-        "support"=>"",
-        "acheivement"=>""
+        'date' => '',
+        'location'=>'',
+        'young_people_id' => '',
+        'staff_id' => '',
+        'incident' => '',
+        'consequence' => '',
+        'action' => ''
     ];
+     // protected $rules = [
+    //         'form.date' => 'required',
+    //         'form.young_people_id' => 'required',
+    //         'form.staff_id' => 'required',
+    //         'form.incident' => 'required',
+    //         'form.consequence' => 'required',
+    //     'form.achievements' => 'required',
+    //         // 'form.reflection'=>'null'
+    // ];
     public function render()
     {
         $result = $this->query();
@@ -21,15 +35,30 @@ class CreateIncidentForm extends Component
         return view('livewire.features.yp-support.create-incident-form',$result);
     }
 
+    public function submit()
+    {
+
+        // $t = $this->validate();
+        // dd($this->form);
+
+        $feedback = appService(IncidentService::class)->create($this->form);
+        if ($feedback['status']) {
+            //alert
+            //redirect
+            return redirect()->route('meaningful-page');
+        }
+        //show error msg
+    }
+
     public function query(){
         $service = appService(GeneralService::class);
         $staff = $service->getAllStaff();
         // dd($staff);
         $young = $service->getAllYoungPeople();
-        $goals = $service->getAllGoals();
-        $outcome = $service->getAllAchivements();
+        $cons = $service->getAllConsequence();
+        // $outcome = $service->getAllAchivements();
         $incident = $service->getAllIncidentType();
-       return compact('staff','young','goals','outcome','incident');
+       return compact('staff','young','incident','cons');
         // $feedback =  appService(BranchCrudService::class)->create(['branch_name'=>'Lagos']);
         // dd($feedback);
     }

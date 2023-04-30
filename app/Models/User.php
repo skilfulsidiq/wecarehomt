@@ -47,4 +47,10 @@ class User extends Authenticatable
     public function setPasswordAttribute($value){
         $this->attributes['password']= Hash::make($value);
     }
+
+
+    public function interactions()
+    {
+        return $this->hasMany(Interaction::class, "staff_id");
+    }
 }

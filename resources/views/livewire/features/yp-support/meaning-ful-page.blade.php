@@ -22,17 +22,25 @@
                     <th>Action</th>
                 </x-slot>
                 <x-slot name="tbody">
-                    <tr>
-                        <td>1</td>
-                        <td>2023-02-05</td>
-                        <td>John Doe</td>
-                        <td>Emotion</td>
-                        <td>Doe Jue, Adam Smith</td>
+                    @forelse ($results as  $n)
+                          <tr>
+                         <td>@includeIf('includes.pagination_number',['app'=>$results])</td>
+                        <td>{{ $n->date }}</td>
+                        <td>{{ $n->youngPeople->firstname}} {{ $n->youngPeople->firstname}}</td>
+                        <td>{{ $n->focus }}</td>
+                        <td>{{ $n->staff->firstname}} {{ $n->staff->lastname}}</td>
+                        {{-- <td>{{ $n->staff_id }}</td> --}}
                         <td>
-                            <a href="{{route('meaningful-detail-page')}}" class="btn btn-outline-primary btn-sm text-center"> <i class="fas fa-eye"></i> </a>
+                            <a href="{{route('meaningful-detail-page',$n->slug)}}" class="btn btn-outline-primary btn-sm text-center"> <i class="fas fa-eye"></i> </a>
                         </td>
                     </tr>
+                    @empty
+
+                    @endforelse
+
                 </x-slot>
-                <x-slot name="paginate"></x-slot>
+                <x-slot name="paginate">
+                     {{ $results->links('custom_pagination') }}
+                </x-slot>
         </x-general.table-card>
 </div>

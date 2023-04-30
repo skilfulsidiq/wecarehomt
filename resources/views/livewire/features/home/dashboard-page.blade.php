@@ -10,16 +10,16 @@
     </x-general.breadcrum>
     <div class="row ">
         <div class="col-md-6 col-lg-3">
-            @livewire('components.counter-card-one', ['title' => 'Total Young People', 'value' => '10', 'color_class' => 'bg-light-success text-success', 'icon' => 'fas fa-users'])
+            @livewire('components.counter-card-one', ['title' => 'Total Young People', 'value' =>$young, 'color_class' => 'bg-light-success text-success', 'icon' => 'fas fa-users'])
         </div>
          <div class="col-md-6 col-lg-3">
-            @livewire('components.counter-card-one', ['title' => 'Total Support Staff', 'value' => '10', 'color_class' => 'bg-light-primary text-primary', 'icon' => 'fas fa-users'])
+            @livewire('components.counter-card-one', ['title' => 'Total Support Staff', 'value' =>$staff, 'color_class' => 'bg-light-primary text-primary', 'icon' => 'fas fa-users'])
         </div>
           <div class="col-md-6 col-lg-3">
-            @livewire('components.counter-card-one', ['title' => 'Total Interaction', 'value' => '10', 'color_class' => 'bg-light-secondary text-secondary', 'icon' => 'fas fa-list'])
+            @livewire('components.counter-card-one', ['title' => 'Total Interaction', 'value' => $interaction, 'color_class' => 'bg-light-secondary text-secondary', 'icon' => 'fas fa-list'])
         </div>
          <div class="col-md-6 col-lg-3">
-            @livewire('components.counter-card-one', ['title' => 'Total Agent', 'value' => '10', 'color_class' => 'bg-light-warning text-warning', 'icon' => 'fas fa-user'])
+            @livewire('components.counter-card-one', ['title' => 'Total Incidents', 'value' => $incident, 'color_class' => 'bg-light-warning text-warning', 'icon' => 'fas fa-user'])
         </div>
     </div>
     <div class="row ">

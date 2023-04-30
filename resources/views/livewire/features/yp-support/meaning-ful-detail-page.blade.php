@@ -20,15 +20,15 @@
                         <table class="table table-striped table-condensed">
                             <tr>
                                 <td style="width:20rem">Date</td>
-                                <td> 20-04-2023</td>
+                                <td> {{ $details->date }}</td>
                             </tr>
                             <tr>
                                 <td style="width:20rem">Name of Young person</td>
-                                <td>Adam Smith</td>
+                                <td> {{ $details->youngPeople->firstname }} {{ $details->youngPeople->lastname }} </td>
                             </tr>
                             <tr>
                                 <td style="width:20rem">Support Staff Present:</td>
-                                <td>Smith Jow, Alo Roy</td>
+                                <td>{{ $details->staff->firstname }} {{ $details->staff->lastname }}</td>
                             </tr>
 
                         </table>
@@ -37,32 +37,30 @@
                 <hr>
                 <div class="p-2">
                     <h6><b>Area of Focus</b></h6>
-                    <p class="p-2">ismy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                    <p class="p-2">{{ $details->focus }}</p>
 
                 </div>
                  {{-- <hr> --}}
                 <div class="p-2">
                     <h6><b>Goal and Objectives</b></h6>
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        @forelse ($details->goals as $goal )
+                        <li class="list-group-item">{{ $goal }}</li>
+                        @empty
+
+                        @endforelse
                     </ul>
 
                 </div>
                 {{-- <hr> --}}
                 <div class="p-2">
                     <h6><b>Outcomes and Achievements</b></h6>
-                    <p class="p-2">ismy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-
+                    <p class="p-2"> {{ implode($details->achievements??[]) }} </p>
                 </div>
                 {{-- <hr> --}}
                 <div class="p-2">
                     <h6><b>Reflection</b></h6>
-                    <p class="p-2">ismy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-
+                    <p class="p-2"> {{ $details->refection }} </p>
                 </div>
 
             </div>

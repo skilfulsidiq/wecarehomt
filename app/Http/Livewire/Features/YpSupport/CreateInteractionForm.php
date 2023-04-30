@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Features\YpSupport;
 
+use App\Services\GeneralService;
+use App\Services\YpSupport\InteractionService;
 use Livewire\Component;
 
 class CreateInteractionForm extends Component
@@ -11,33 +13,52 @@ class CreateInteractionForm extends Component
     public $date;
     public $form = [
         'date'=>'',
-        'young'=>'',
-        'support'=>'',
+        'young_people_id'=>'',
+        'staff_id'=>'',
         'focus'=>'',
-        'goal'=>'',
-        'acheivement'=>'',
-        'reflection'=>''
+        'goals'=>'',
+        'achievements'=>'',
+        'refection'=>''
     ];
-    public function goNextStep(){
-        if($this->step < $this->total_step){
-            $this->step++;
-        }
-    }
-    public function goBack(){
-        if ($this->step > 1) {
-            $this->step--;
-        }
-    }
+    // protected $rules = [
+    //         'form.date' => 'required',
+    //         'form.young_people_id' => 'required',
+    //         'form.staff_id' => 'required',
+    //         'form.focus' => 'required',
+    //         'form.goals' => 'required',
+    //     'form.achievements' => 'required',
+    //         // 'form.reflection'=>'null'
+    // ];
+
+
     public function submit(){
-        return redirect()->route('meaningful-page');
-        // return redirect(request()->header('Referer'));
+
+        // $t = $this->validate();
+        // dd($this->form);
+
+       $feedback = appService(InteractionService::class)->create($this->form);
+       if($feedback['status']){
+            //alert
+            //redirect
+            return redirect()->route('meaningful-page');
+       }
+       //show error msg
     }
-    public function play()
-    {
-        dd($this->form);
-    }
+
     public function render()
     {
-        return view('livewire.features.yp-support.create-interaction-form');
+        $r = $this->query();
+        return view('livewire.features.yp-support.create-interaction-form',$r);
+    }
+    public function query(){
+        $service = appService(GeneralService::class);
+        $staff = $service->getAllStaff();
+        $focus = $service->getFocus();
+        // dd($staff);
+        $young = $service->getAllYoungPeople();
+        $goals = $service->getAllGoals();
+        $outcome = $service->getAllAchivements();
+        $incident = $service->getAllIncidentType();
+        return compact('staff', 'young', 'goals', 'outcome', 'incident','focus');
     }
 }

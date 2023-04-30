@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class IncidentType extends Model
+class Focus extends Model
 {
     use HasFactory;
-    protected $fillable = ["incident_name","incident_desc"];
+    protected $fillable=['focus_name',"focus_desc"];
 }

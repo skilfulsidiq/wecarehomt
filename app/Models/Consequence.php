@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\Model;
 class Consequence extends Model
 {
     use HasFactory;
-    protected $fillables = ["consequence_name"];
+    protected $fillables = ["consequence_name", "consequence_desc"];
 }

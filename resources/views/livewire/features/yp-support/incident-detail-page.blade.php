@@ -38,25 +38,19 @@
                         <table class="table ">
                             <tr>
                                 <td style="width:20rem">Date</td>
-                                <td> 20-04-2023</td>
+                                <td> {{ $details->date }}</td>
                             </tr>
                             <tr>
                                 <td style="width:20rem">Description of the Incident</td>
-                                <td>The report can also help to ensure that everyone involved in the situation is aware
-                                    of what
-                                    happened and what actions were taken</td>
+                                <td>{{$details->incident}}/td>
                             </tr>
                             <tr>
                                 <td style="width:20rem">Consequences</td>
-                                <td>As our policy states it is compulsory that we inform you of any significant
-                                    incidents within 24
-                                    hours of them occurring. This is because t</td>
+                                <td>{{ $details->consequence }}</td>
                             </tr>
                             <tr>
                                 <td style="width:20rem">Actions Taken</td>
-                                <td>As our policy states it is compulsory that we inform you of any significant
-                                    incidents within 24
-                                    hours of them occurring. This is because t</td>
+                                <td>{{ $details->action }}</td>
                             </tr>
 
                         </table>

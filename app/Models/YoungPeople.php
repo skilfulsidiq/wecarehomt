@@ -9,4 +9,12 @@ class YoungPeople extends Model
 {
     use HasFactory;
      protected $fillable = ["firstname","lastname","email","phone","dob","gender","disability"];
+
+
+
+    /**Relationship */
+    public function interactions()
+    {
+        return $this->hasMany(Interaction::class, "young_people_id");
+    }
 }

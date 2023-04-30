@@ -122,8 +122,7 @@
 
     </script>
     <script>
-        $('.single-select').select2({});
-        $('.multiple-select').select2({});
+
 
         $.fn.modal.Constructor.prototype._enforceFocus = function() {};
 
@@ -167,8 +166,10 @@
 }
         $(document).ready(function() {
             //  $('.select2').select2();
-            $('.form').parsley();
+              $('.select2').select2({});
+            $('.appform').parsley();
             // $('.select2').select2();
+         
 
 
 

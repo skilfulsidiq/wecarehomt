@@ -19,7 +19,7 @@ class GeneralService {
     }
     public function getAllConsequence()
     {
-        return DB::table("consequence")->get();
+        return DB::table("consequences")->get();
     }
     public function getAllGoals()
     {
@@ -36,5 +36,9 @@ class GeneralService {
     public function getAllAchivements()
     {
         return DB::table("outcome_achievements")->get();
+    }
+    public function getFocus()
+    {
+        return DB::table("focus")->get();
     }
 }
