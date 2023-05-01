@@ -17,7 +17,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    'sendmailto'=>['osodiq@gmail.com'],
+    'sendmailto'=>['osodiq+10@gmail.com', 'sadiqadebayo50@gmail.com', 'adrian@wecarehomes.co.uk'],
 
     /*
     |--------------------------------------------------------------------------

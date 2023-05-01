@@ -21,15 +21,15 @@ class CreateIncidentForm extends Component
         'consequence' => '',
         'action' => ''
     ];
-     protected $rules = [
-            'form.date' => 'required',
-            'form.location'=>'required',
-            'form.young_people_id' => 'required',
-            'form.staff_id' => 'required',
-            'form.incident' => 'required',
-            'form.consequence' => 'required'
-            // 'form.reflection'=>'null'
-    ];
+    //  protected $rules = [
+    //         'form.date' => 'required',
+    //         'form.location'=>'required',
+    //         'form.young_people_id' => 'required',
+    //         'form.staff_id' => 'required',
+    //         'form.incident' => 'required',
+    //         'form.consequence' => 'required'
+    //         // 'form.reflection'=>'null'
+    // ];
     public function render()
     {
         $result = $this->query();
@@ -40,7 +40,7 @@ class CreateIncidentForm extends Component
     public function submit()
     {
 
-        $t = $this->validate();
+        // $t = $this->validate();
         // dd($this->form);
 
         $feedback = appService(IncidentService::class)->create($this->form);
