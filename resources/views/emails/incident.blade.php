@@ -6,7 +6,7 @@
             <div class="col-xl-6 col-lg-6 col-sm-12 m-auto">
                 <p>Dear Admin,</p>
                 <br/>
-                <p>Attach with the incident Report report.</p>
+                <p>Kindly find attached document for detail of the report</p>
                 <br/>
                 <p> Best Regards</p>
                 <p> </p>

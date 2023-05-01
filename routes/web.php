@@ -41,6 +41,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get("/seed",[SeedController::class, "seedAllData"]);
 Route::get('/', LoginPage::class)->name('login');
+Route::get('/', LoginPage::class)->name('login');
 Route::get('/login', LoginPage::class)->name('login');
 Route::get('/home', DashboardPage::class)->name('home');
 

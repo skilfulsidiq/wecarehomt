@@ -10,8 +10,8 @@ class SeedController extends Controller
 {
     public function seedAllData(){
         //branch
-        // DB::table("branches")->insert(['branch_name'=>'Lagos']);
-        // DB::table("consequences")->insert(['consequence_name'=>'Intelligent'], ['consequence_name' => 'Greater Value']);
+        DB::table("branches")->insert(['branch_name'=>'Lagos']);
+        DB::table("consequences")->insert(['consequence_name'=>'Intelligent'], ['consequence_name' => 'Greater Value']);
         // DB::table("disabilities")->insert(['disability_name'=>'Blind'], ['disability_name' => 'Deaf'], ['disability_name' => 'Lame']);
         // DB::table("function_types")->insert(['function_name'=>'Interaction'], ['function_name' => 'Incident'], ['function_name' => 'KW Session']);
         // DB::table("incident_types")->insert(['incident_name'=>'Police Report'], ['incident_name' => 'Fight'], ['incident_name' => 'Harrassment']);
