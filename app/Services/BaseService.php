@@ -149,7 +149,7 @@ class BaseService
      */
     public function create($input)
     {
-        // $model = $this->model->newInstance($input);
+        // dd($input);     
         $model = $this->model->create($input);
 
         // $model->save();

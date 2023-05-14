@@ -7,6 +7,8 @@ use Livewire\Component;
 class LoginPage extends Component
 {
 
+    public $email="test@test.com";
+    public $password="123456";
     public function login(){
         // $credentials = $this->validate();
         // if (auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {

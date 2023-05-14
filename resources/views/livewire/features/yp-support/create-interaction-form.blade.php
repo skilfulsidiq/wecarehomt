@@ -26,10 +26,10 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
-                            <div class="form-group mt-2" wire:ignore>
+                            <div class="form-group mt-2" >
                                 <label for="">Young Person</label>
-                                <select class="form-control select2"  wire:model.lazy="form.young_people_id" required>
-
+                                <select class="form-control select3"  wire:model="form.young_people_id" required>
+                                    <option value="">Select</option>
                                       @forelse ($young as $in)
                                     <option value="{{ $in->id }}">{{ $in->firstname }} {{ $in->lastname }}</option>
                                     @empty
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
-                            <div class="form-group mt-2" wire:ignore>
+                            <div class="form-group mt-2" >
                                 <label for="">Support Staff</label>
                                    <select  class="form-control select2"  wire:model="form.staff_id" >
 
@@ -55,9 +55,9 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6mt-2">
-                            <div class="form-group mt-2" wire:ignore>
+                            <div class="form-group mt-2" >
                                 <label for="">Focus</label>
-                                <select class="form-control select2"  wire:model="form.focus" >
+                                <select class="form-control select"  wire:model="form.focus" >
 
                                       @forelse ($focus as $in)
                                     <option value="{{ $in->focus_name }}">{{ $in->focus_name }} </option>
@@ -70,9 +70,9 @@
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
 
-                            <div class="form-group" wire:ignore>
+                            <div class="form-group" >
                                 <label for="">Select Goals</label>
-                                <select  class="form-control select2"  wire:model="form.goals" multiple >
+                                <select  class="form-control select"  wire:model="form.goals" multiple>
                                     {{-- <option value="">Select</option> --}}
                                       @forelse ($goals as $in)
                                       <option value="{{ $in->goal_name }}">{{ $in->goal_name }}</option>
@@ -85,9 +85,9 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2">
-                             <div class="form-group mt-2" wire:ignore>
+                             <div class="form-group mt-2"  >
                                 <label for="">Select Achievement</label>
-                                <select  class="form-control select2"  wire:model="form.achievements" multiple>
+                                <select  class="form-control select"  wire:model="form.achievements"  multiple>
                                     {{-- <option >Select</option> --}}
                                       @forelse ($outcome as $in)
                                       <option value="{{ $in->outcome_name }}">{{ $in->outcome_name }}</option>
@@ -95,7 +95,7 @@
 
                                     @endforelse
                                 </select>
-                                   @error('form.acheivements') <div class="error"> {{ $message }} </div> @enderror
+                                   @error('form.achievements') <div class="error"> {{ $message }} </div> @enderror
                             </div>
 
 
@@ -105,7 +105,7 @@
                             <div class="form-group">
                                 <label for="">Refelction</label>
                                 {{-- <label for="">Focus</label> --}}
-                                <textarea id="composition" wire:model="form.reflection" class="form-control"></textarea>
+                                <textarea id="composition" wire:model="form.refection" class="form-control"></textarea>
                             </div>
                         </div>
                     </div>
